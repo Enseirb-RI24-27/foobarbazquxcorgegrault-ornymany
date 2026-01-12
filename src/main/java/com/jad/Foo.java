@@ -1,6 +1,7 @@
 package com.jad;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Foo {
@@ -15,11 +16,11 @@ public class Foo {
     }
 
     public List<Baz> getBazs() {
-        return bazs;
+        return this.bazs;
     }
 
     public Qux getQux() {
-        return qux;
+        return this.qux;
     }
 
     public Corge getCorge() {
@@ -36,13 +37,17 @@ public class Foo {
 
     public Foo(Bar bar) {
         this.bar = bar;
+        this.bazs = new ArrayList<>();
+        this.qux = new Qux();
+        this.corge = new Corge(this);
+        this.graults = new ArrayList<>();
     }
 
     public void addBaz(Baz baz) {
-
+        this.bazs.add(baz);
     }
 
     public void addGrault() {
-
+        this.graults.add(new Grault(this));
     }
 }
