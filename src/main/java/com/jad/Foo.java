@@ -28,6 +28,9 @@ public class Foo {
     }
 
     public Corge setCorge(Corge corge1) {
+        if (this.corge != null) {
+            this.corge.setFoo(null);
+        }
         return this.corge = corge1;
     }
 
@@ -39,7 +42,7 @@ public class Foo {
         this.bar = bar;
         this.bazs = new ArrayList<>();
         this.qux = new Qux();
-        this.corge = new Corge(this);
+        this.corge = null;
         this.graults = new ArrayList<>();
     }
 
